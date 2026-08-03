@@ -1,8 +1,8 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://uhvxsvvacrcyhskpmouc.supabase.co';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVodnhzdnZhY3JjeWhza3Btb3VjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3MzU0NTgsImV4cCI6MjEwMTMxMTQ1OH0.yJ8a119bOwpWIjdB7JYvxZekkHJH1Vvb1KWrqr31HB0';
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVodnhzdnZhY3JjeWhza3Btb3VjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3MzU0NTgsImV4cCI6MjEwMTMxMTQ1OH0.yJ8a119bOwpWIjdB7JYvxZekkHJH1Vvb1KWrqr31HB0';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://zfgunzkqvjypliaocosp.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZ3Vuemtxdmp5cGxpYW9jb3NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NDM0ODMsImV4cCI6MjEwMTMxOTQ4M30.wMAouNSqpB34wnP0TaINf5GRLqCd1wyfMrwHpTBovsE';
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZ3Vuemtxdmp5cGxpYW9jb3NwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NTc0MzQ4MywiZXhwIjoyMTAxMzE5NDgzfQ.--589vw6JOtAHlyR5tLm_LgNk3_H-VnLZlfZ36LNUPk';
 
 // Global Singleton instances
 let supabaseInstance: SupabaseClient | null = null;
@@ -20,7 +20,7 @@ export function getSupabase(): SupabaseClient {
 
 export function getSupabaseAdmin(): SupabaseClient {
   if (!supabaseAdminInstance) {
-    console.log('[Supabase Init] Creating Admin Service Role Supabase Client');
+    console.log('[Supabase Init] Creating Admin Service Role Supabase Client for:', supabaseUrl);
     supabaseAdminInstance = createClient(supabaseUrl, supabaseServiceKey, {
       auth: { persistSession: false }
     });
@@ -49,7 +49,7 @@ export async function uploadCustomerDocument(file: File): Promise<string> {
 
     if (error) {
       console.error('[Supabase Storage Error]:', error.message, error);
-      return `https://uhvxsvvacrcyhskpmouc.supabase.co/storage/v1/object/public/documents/${filePath}`;
+      return `https://zfgunzkqvjypliaocosp.supabase.co/storage/v1/object/public/documents/${filePath}`;
     }
 
     const { data: publicUrlData } = client.storage
@@ -60,6 +60,6 @@ export async function uploadCustomerDocument(file: File): Promise<string> {
     return publicUrlData.publicUrl;
   } catch (err: any) {
     console.error('[Supabase Storage Exception]:', err);
-    return `https://uhvxsvvacrcyhskpmouc.supabase.co/storage/v1/object/public/documents/demo_${Date.now()}_${file.name}`;
+    return `https://zfgunzkqvjypliaocosp.supabase.co/storage/v1/object/public/documents/demo_${Date.now()}_${file.name}`;
   }
 }
