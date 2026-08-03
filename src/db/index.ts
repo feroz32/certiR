@@ -2,10 +2,10 @@ import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 import * as schema from './schema';
 
-const connectionString = process.env.DATABASE_URL || '';
+const connectionString = process.env.DATABASE_URL || 'postgresql://postgres.uhvxsvvacrcyhskpmouc:supaSecretPass123!@aws-0-ap-southeast-2.pooler.supabase.com:6543/postgres';
 
-// For edge or serverless environments, we safely instantiate postgres client
-const client = connectionString ? postgres(connectionString, { max: 1 }) : null;
+// Disable prefetch as prepare: false is required for Supabase "Transaction" pool mode
+const client = postgres(connectionString, { prepare: false, max: 10 });
 
-export const db = client ? drizzle(client, { schema }) : null;
+export const db = drizzle(client, { schema });
 export { schema };
