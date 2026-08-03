@@ -1,7 +1,7 @@
 -- ========================================================
 -- CertiR Master Supabase Migration Script
 -- Database: PostgreSQL (Supabase)
--- Project: uhvxsvvacrcyhskpmouc
+-- Project: zfgunzkqvjypliaocosp
 -- ========================================================
 
 -- 1. PROFILES TABLE
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS public.payments (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 6. APPLICATIONS TABLE (Backwards compatibility)
+-- 6. APPLICATIONS TABLE
 CREATE TABLE IF NOT EXISTS public.applications (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   full_name TEXT NOT NULL,
@@ -102,9 +102,7 @@ CREATE TABLE IF NOT EXISTS public.documents (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- ========================================================
--- ENABLE ROW LEVEL SECURITY (RLS) FOR ALL TABLES
--- ========================================================
+-- RLS & POLICIES FOR AUTHENTICATED & ANONYMOUS USERS
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.services ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.bookings ENABLE ROW LEVEL SECURITY;
@@ -113,54 +111,23 @@ ALTER TABLE public.payments ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.applications ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.documents ENABLE ROW LEVEL SECURITY;
 
--- ========================================================
--- RLS POLICIES FOR AUTHENTICATED & ANONYMOUS USERS
--- ========================================================
-
--- PROFILES POLICIES
-DROP POLICY IF EXISTS "Profiles Access" ON public.profiles;
-CREATE POLICY "Profiles Access" ON public.profiles FOR ALL USING (true) WITH CHECK (true);
-
--- SERVICES POLICIES
-DROP POLICY IF EXISTS "Services Access" ON public.services;
-CREATE POLICY "Services Access" ON public.services FOR ALL USING (true) WITH CHECK (true);
-
--- BOOKINGS POLICIES
-DROP POLICY IF EXISTS "Bookings Access" ON public.bookings;
 CREATE POLICY "Bookings Access" ON public.bookings FOR ALL USING (true) WITH CHECK (true);
-
--- BOOKING DOCUMENTS POLICIES
-DROP POLICY IF EXISTS "Booking Documents Access" ON public.booking_documents;
-CREATE POLICY "Booking Documents Access" ON public.booking_documents FOR ALL USING (true) WITH CHECK (true);
-
--- PAYMENTS POLICIES
-DROP POLICY IF EXISTS "Payments Access" ON public.payments;
-CREATE POLICY "Payments Access" ON public.payments FOR ALL USING (true) WITH CHECK (true);
-
--- APPLICATIONS POLICIES
-DROP POLICY IF EXISTS "Applications Access" ON public.applications;
 CREATE POLICY "Applications Access" ON public.applications FOR ALL USING (true) WITH CHECK (true);
-
--- DOCUMENTS VAULT POLICIES
-DROP POLICY IF EXISTS "Documents Vault Access" ON public.documents;
+CREATE POLICY "Profiles Access" ON public.profiles FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Services Access" ON public.services FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Booking Documents Access" ON public.booking_documents FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Payments Access" ON public.payments FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Documents Vault Access" ON public.documents FOR ALL USING (true) WITH CHECK (true);
 
--- ========================================================
--- STORAGE BUCKET 'documents' SETUP & POLICIES
--- ========================================================
+-- STORAGE BUCKET 'documents' SETUP
 INSERT INTO storage.buckets (id, name, public) 
 VALUES ('documents', 'documents', true) 
 ON CONFLICT (id) DO NOTHING;
 
-DROP POLICY IF EXISTS "Storage Bucket Public Insert" ON storage.objects;
 CREATE POLICY "Storage Bucket Public Insert" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'documents');
-
-DROP POLICY IF EXISTS "Storage Bucket Public Select" ON storage.objects;
 CREATE POLICY "Storage Bucket Public Select" ON storage.objects FOR SELECT USING (bucket_id = 'documents');
 
--- ========================================================
--- SAMPLE INSERT & VERIFICATION QUERY
--- ========================================================
+-- VERIFICATION SAMPLE RECORD INSERT
 INSERT INTO public.bookings (
   customer_name, 
   mobile_number, 
@@ -175,9 +142,9 @@ INSERT INTO public.bookings (
   'rahul.sharma@example.com', 
   'Flat 402, Sunshine Heights, Andheri West, Mumbai', 
   'Aadhaar New Enrollment & Update', 
-  '["https://uhvxsvvacrcyhskpmouc.supabase.co/storage/v1/object/public/documents/sample_id.pdf"]'::jsonb, 
+  '["https://zfgunzkqvjypliaocosp.supabase.co/storage/v1/object/public/documents/sample_id.pdf"]'::jsonb, 
   'Pending'
 );
 
--- Read back inserted record
+-- VERIFICATION READ BACK
 SELECT * FROM public.bookings ORDER BY created_at DESC LIMIT 5;
