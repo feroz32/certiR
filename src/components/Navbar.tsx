@@ -1,142 +1,80 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { 
-  FileText, 
-  FolderCheck, 
-  Search, 
-  RefreshCw, 
-  Grid, 
-  ShieldCheck, 
-  User, 
-  LogOut, 
-  Menu, 
-  X,
-  Bell
-} from 'lucide-react';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import ThemeToggle from './ThemeToggle';
+import { Menu, X, ShieldCheck } from 'lucide-react';
+import { useSession, signOut } from 'next-auth/react';
 
 export default function Navbar() {
-  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { data: session } = useSession();
 
   const navLinks = [
-    { href: '/', label: 'Home', icon: Grid },
-    { href: '/marketplace', label: 'Services Marketplace', icon: Search },
-    { href: '/vault', label: 'Document Vault', icon: FolderCheck, badge: 'Store' },
-    { href: '/tracking', label: 'Track Application', icon: FileText, badge: 'Live' },
-    { href: '/renewals', label: 'Renewals Hub', icon: RefreshCw, badge: 'Alerts' },
-    { href: '/admin', label: 'Admin Dashboard', icon: ShieldCheck, badge: 'Admin' },
+    { href: '/', label: 'Home' },
+    { href: '#services', label: 'Services' },
+    { href: '#how-it-works', label: 'How It Works' },
+    { href: '#about', label: 'About' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <header className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <ShieldCheck className="w-6 h-6" />
+          {/* Left: Brand Name */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-[#1769E0] text-white flex items-center justify-center">
+              <ShieldCheck className="w-5 h-5" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
-                certi<span className="gradient-text">R</span>
-              </span>
-              <span className="text-[10px] font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 -mt-1">
-                One Platform • All Documents
-              </span>
-            </div>
+            <span className="text-xl font-bold text-[#0B2850] tracking-tight">
+              CertificationWork.com
+            </span>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-indigo-600/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-400 font-semibold'
-                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-                  }`}
-                >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'}`} />
-                  <span>{link.label}</span>
-                  {link.badge && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-                      {link.badge}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+          {/* Center: Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-[#1F2937] hover:text-[#1769E0] transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
-          {/* Right Action Items */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
-
-            {/* Notification Icon */}
-            <div className="relative">
-              <button 
-                className="p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                title="2 Urgent Expiry Alerts"
-              >
-                <Bell className="w-5 h-5" />
-                <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-rose-500 rounded-full ring-2 ring-white dark:ring-slate-900 animate-ping" />
-                <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-rose-500 rounded-full ring-2 ring-white dark:ring-slate-900" />
-              </button>
-            </div>
-
-            {/* User Auth Section */}
+          {/* Right: Login / Profile */}
+          <div className="hidden md:flex items-center gap-4">
             {session?.user ? (
-              <div className="flex items-center gap-3 pl-2 border-l border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center ring-2 ring-indigo-300 dark:ring-indigo-800">
-                    {session.user.name?.[0] || 'U'}
-                  </div>
-                  <div className="hidden lg:flex flex-col text-left">
-                    <span className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">
-                      {session.user.name || 'Rahul Sharma'}
-                    </span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">
-                      Verified Vault
-                    </span>
-                  </div>
-                </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-semibold text-[#0B2850]">
+                  {session.user.name || 'Account'}
+                </span>
                 <button
                   onClick={() => signOut()}
-                  className="p-2 rounded-lg text-slate-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
-                  title="Sign Out"
+                  className="px-3.5 py-1.5 rounded-lg text-xs font-semibold border border-[#E5E7EB] text-[#667085] hover:text-[#0B2850] transition-colors"
                 >
-                  <LogOut className="w-4 h-4" />
+                  Sign Out
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => signIn('google')}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-white text-sm font-semibold shadow-md hover:opacity-95 transition-opacity"
+              <Link
+                href="/login"
+                className="px-4 py-2 rounded-lg bg-[#EEF6FF] text-[#1769E0] border border-[#E5E7EB] text-sm font-semibold hover:bg-[#E0EEFF] transition-colors"
               >
-                <User className="w-4 h-4" />
-                <span>Google Sign In</span>
-              </button>
+                Login
+              </Link>
             )}
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
+          {/* Mobile Hamburger Button */}
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+              aria-label="Toggle menu"
+              className="p-2 text-[#1F2937] hover:text-[#1769E0]"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -147,51 +85,34 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-4 pt-2 pb-6 space-y-2">
-          {navLinks.map((link) => {
-            const Icon = link.icon;
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium ${
-                  isActive
-                    ? 'bg-indigo-600 text-white font-semibold'
-                    : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <Icon className="w-5 h-5" />
-                  <span>{link.label}</span>
-                </div>
-                {link.badge && (
-                  <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                    {link.badge}
-                  </span>
-                )}
-              </Link>
-            );
-          })}
+        <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-[#1F2937] hover:text-[#1769E0] hover:bg-[#EEF6FF] rounded-lg transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
 
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
+          <div className="pt-3 border-t border-[#E5E7EB]">
             {session?.user ? (
               <button
                 onClick={() => signOut()}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-rose-300 dark:border-rose-800 text-rose-600 dark:text-rose-400 font-semibold"
+                className="w-full text-left px-3 py-2 text-base font-medium text-rose-600"
               >
-                <LogOut className="w-5 h-5" />
-                <span>Sign Out ({session.user.name})</span>
+                Sign Out ({session.user.name})
               </button>
             ) : (
-              <button
-                onClick={() => signIn('google')}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg gradient-bg text-white font-semibold shadow-md"
+              <Link
+                href="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center px-4 py-2.5 rounded-lg bg-[#1769E0] text-white text-sm font-semibold"
               >
-                <User className="w-5 h-5" />
-                <span>Sign In with Google</span>
-              </button>
+                Login
+              </Link>
             )}
           </div>
         </div>
