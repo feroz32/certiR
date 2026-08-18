@@ -25,8 +25,8 @@ export default function CertificateAnimation() {
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-md bg-[#1769E0] text-white flex items-center justify-center font-bold text-xs">
-                Cw
+              <div className="w-7 h-7 rounded-md bg-[#1769E0] text-white flex items-center justify-center font-black text-xs">
+                CW
               </div>
               <span className="text-[11px] font-bold text-[#0B2850]">Certificate</span>
             </div>
