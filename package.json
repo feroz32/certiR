@@ -10,6 +10,9 @@
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@auth/core": "^0.34.2",
     "@prisma/client": "^5.22.0",
