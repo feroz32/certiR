@@ -4,100 +4,67 @@ import { motion } from 'framer-motion';
 import { MessageCircle, FileText, CheckCircle2, Home, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function CertificateAnimation() {
+  const stages = [
+    { label: 'WhatsApp', icon: MessageCircle },
+    { label: 'Documents', icon: FileText },
+    { label: 'Application', icon: ShieldCheck },
+    { label: 'Certificate Ready', icon: CheckCircle2 },
+    { label: 'Doorstep', icon: Home },
+  ];
+
   return (
-    <div className="w-full max-w-3xl mx-auto my-6">
-      {/* Minimal Card Container */}
-      <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 sm:p-8 shadow-sm space-y-6 relative overflow-hidden">
+    <div className="w-full max-w-xl mx-auto py-4">
+      {/* Clean Subtle White Container */}
+      <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 text-center">
         
-        {/* Top Floating Certificate Graphic */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6 border-b border-[#E5E7EB]">
-          
-          {/* Main Floating Blue & White Document */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-full sm:w-1/2 bg-[#EEF6FF] border border-[#CBD5E1] rounded-xl p-5 space-y-3 relative"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1769E0] text-white flex items-center justify-center font-bold text-xs">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-[#0B2850]">Official Certificate</h4>
-                  <p className="text-[10px] text-[#667085]">CertificationWork.com</p>
-                </div>
+        {/* Main Floating Certificate Object */}
+        <motion.div
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-48 sm:w-56 mx-auto bg-[#EEF6FF] border border-[#CBD5E1] rounded-2xl p-5 space-y-3 shadow-md text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-md bg-[#1769E0] text-white flex items-center justify-center font-bold text-xs">
+                Cw
               </div>
-              <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                Issued
-              </span>
+              <span className="text-[11px] font-bold text-[#0B2850]">Certificate</span>
             </div>
-
-            {/* Document preview lines */}
-            <div className="space-y-2 pt-1">
-              <div className="h-2 bg-white rounded w-5/6" />
-              <div className="h-2 bg-white rounded w-3/4" />
-              <div className="h-2 bg-white rounded w-2/3" />
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-[10px] text-[#667085] font-medium">Protecting the Proof of Life</span>
-              <div className="w-6 h-6 rounded-full border-2 border-[#1769E0] flex items-center justify-center">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1769E0]" />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Quick Explanation */}
-          <div className="w-full sm:w-1/2 space-y-2 text-left">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#1769E0]">
-              Simple Doorstep Process
-            </span>
-            <h3 className="text-xl font-bold text-[#0B2850] leading-snug">
-              Documents → Application → Certificate Delivered
-            </h3>
-            <p className="text-xs text-[#667085] leading-relaxed">
-              Tell us what you need on WhatsApp. We collect your required documents, file the application, and deliver the completed certificate directly to your doorstep.
-            </p>
-          </div>
-        </div>
-
-        {/* 4 Step Flow */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="p-3 rounded-xl bg-[#EEF6FF] border border-[#E5E7EB] space-y-1">
-            <div className="flex items-center justify-between">
-              <MessageCircle className="w-4 h-4 text-[#1769E0]" />
-              <span className="text-[10px] font-bold text-[#667085]">01</span>
-            </div>
-            <h4 className="text-xs font-bold text-[#0B2850]">Talk to Us</h4>
-            <p className="text-[11px] text-[#667085]">WhatsApp assist</p>
+            <span className="w-2 h-2 rounded-full bg-[#1769E0]" />
           </div>
 
-          <div className="p-3 rounded-xl bg-[#EEF6FF] border border-[#E5E7EB] space-y-1">
-            <div className="flex items-center justify-between">
-              <FileText className="w-4 h-4 text-[#1769E0]" />
-              <span className="text-[10px] font-bold text-[#667085]">02</span>
-            </div>
-            <h4 className="text-xs font-bold text-[#0B2850]">Share Documents</h4>
-            <p className="text-[11px] text-[#667085]">Doorstep collection</p>
+          <div className="space-y-1.5 pt-1">
+            <div className="h-2 bg-white rounded-full w-full" />
+            <div className="h-2 bg-white rounded-full w-4/5" />
+            <div className="h-2 bg-white rounded-full w-3/5" />
           </div>
 
-          <div className="p-3 rounded-xl bg-[#EEF6FF] border border-[#E5E7EB] space-y-1">
-            <div className="flex items-center justify-between">
-              <CheckCircle2 className="w-4 h-4 text-[#1769E0]" />
-              <span className="text-[10px] font-bold text-[#667085]">03</span>
-            </div>
-            <h4 className="text-xs font-bold text-[#0B2850]">We Handle It</h4>
-            <p className="text-[11px] text-[#667085]">Official filing</p>
+          <div className="flex justify-end pt-1">
+            <CheckCircle2 className="w-4 h-4 text-[#1769E0]" />
           </div>
+        </motion.div>
 
-          <div className="p-3 rounded-xl bg-[#EEF6FF] border border-[#E5E7EB] space-y-1">
-            <div className="flex items-center justify-between">
-              <Home className="w-4 h-4 text-[#1769E0]" />
-              <span className="text-[10px] font-bold text-[#667085]">04</span>
-            </div>
-            <h4 className="text-xs font-bold text-[#0B2850]">Delivered to You</h4>
-            <p className="text-[11px] text-[#667085]">At your doorstep</p>
+        {/* 5 Stage Horizontal Flow Indicator */}
+        <div className="pt-2">
+          <div className="flex items-center justify-between text-center relative px-2">
+            
+            {/* Horizontal Line behind */}
+            <div className="absolute top-4 left-6 right-6 h-0.5 bg-[#EEF6FF] -z-0" />
+
+            {stages.map((stage, idx) => {
+              const Icon = stage.icon;
+              return (
+                <div key={idx} className="relative z-10 flex flex-col items-center gap-1.5">
+                  <div className="w-8 h-8 rounded-full bg-white border-2 border-[#1769E0] text-[#1769E0] flex items-center justify-center shadow-xs">
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-semibold text-[#667085] hidden sm:block">
+                    {stage.label}
+                  </span>
+                </div>
+              );
+            })}
+
           </div>
         </div>
 
