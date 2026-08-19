@@ -3,10 +3,11 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Providers from '@/components/Providers';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export const metadata: Metadata = {
-  title: "CertificationWork.com — Official Certificate & Document Assistance",
-  description: 'CertificationWork.com provides professional certificate and document assistance services. Apply online, upload documents, track scrutiny, and receive doorstep delivery.',
+  title: "CertificationWork.com — Need a Certificate? We'll Handle It.",
+  description: 'CertificationWork.com provides certificate and document assistance services. Tell us what you need, we collect your documents, handle the application and deliver to your doorstep.',
   keywords: ['CertificationWork.com', 'birth certificate', 'caste certificate', 'income certificate', 'ews certificate', 'aadhaar card', 'pan card', 'passport services', 'driving licence renewal', 'doorstep document delivery'],
 };
 
@@ -24,6 +25,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <FloatingWhatsApp />
         </Providers>
       </body>
     </html>
