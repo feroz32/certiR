@@ -23,14 +23,14 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-24 pb-16 bg-white text-[#1F2937]">
+    <div className="space-y-20 pb-16 bg-white text-[#1F2937]">
       
-      {/* 1. HERO SECTION (SPLIT LAYOUT FROM IMAGE) */}
-      <section className="pt-12 sm:pt-20 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
+      {/* 1. HERO SECTION (PERFECTLY CENTERED & FITTED) */}
+      <section className="pt-8 sm:pt-14 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 w-full">
           
           {/* Left Column: Text & WhatsApp CTA */}
-          <div className="lg:col-span-6 space-y-6 text-left">
+          <div className="lg:col-span-6 space-y-6 text-left my-auto">
             
             {/* Eyebrow Label */}
             <div className="flex items-center gap-2 text-[#1769E0] text-xs font-bold uppercase tracking-widest">
@@ -64,8 +64,8 @@ export default function HomePage() {
 
           </div>
 
-          {/* Right Column: Interactive Certificate Visual with Orbiting Cards */}
-          <div className="lg:col-span-6 flex justify-center">
+          {/* Right Column: Hero Visual Perfectly Centered */}
+          <div className="lg:col-span-6 flex items-center justify-center my-auto overflow-visible">
             <HeroVisual />
           </div>
 
