@@ -69,12 +69,12 @@ export default function HeroVisual() {
         </div>
       </motion.div>
 
-      {/* 1. TOP CENTER: Birth Certificate (Exact Horizontal Center) */}
+      {/* 1. TOP CENTER: Birth Certificate (Native CSS left-0 right-0 mx-auto w-max) */}
       <motion.div
-        style={{ left: '50%', top: '1%' }}
-        animate={{ x: '-50%', y: [0, -6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, delay: 0, ease: 'easeInOut' }}
-        className="absolute z-20"
+        style={{ top: '1%' }}
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 4, repeat: Infinity, delay: 0, ease: 'easeInOut' }}
+        className="absolute left-0 right-0 mx-auto w-max z-20 flex justify-center"
       >
         <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
           <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
@@ -90,7 +90,7 @@ export default function HeroVisual() {
       <motion.div
         style={{ right: '0%', top: '14%' }}
         animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, delay: 0.4, ease: 'easeInOut' }}
+        transition={{ duration: 4, repeat: Infinity, delay: 0.7, ease: 'easeInOut' }}
         className="absolute z-20"
       >
         <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
@@ -107,7 +107,7 @@ export default function HeroVisual() {
       <motion.div
         style={{ right: '0%', bottom: '14%' }}
         animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, delay: 0.8, ease: 'easeInOut' }}
+        transition={{ duration: 4, repeat: Infinity, delay: 1.4, ease: 'easeInOut' }}
         className="absolute z-20"
       >
         <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
@@ -124,7 +124,7 @@ export default function HeroVisual() {
       <motion.div
         style={{ left: '0%', bottom: '14%' }}
         animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, delay: 1.2, ease: 'easeInOut' }}
+        transition={{ duration: 4, repeat: Infinity, delay: 2.1, ease: 'easeInOut' }}
         className="absolute z-20"
       >
         <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
@@ -141,7 +141,7 @@ export default function HeroVisual() {
       <motion.div
         style={{ left: '0%', top: '14%' }}
         animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, delay: 1.6, ease: 'easeInOut' }}
+        transition={{ duration: 4, repeat: Infinity, delay: 2.8, ease: 'easeInOut' }}
         className="absolute z-20"
       >
         <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
@@ -154,12 +154,12 @@ export default function HeroVisual() {
         </div>
       </motion.div>
 
-      {/* 6. BOTTOM CENTER: And many more Pill (Exact Horizontal Center) */}
+      {/* 6. BOTTOM CENTER: And many more Pill (Native CSS left-0 right-0 mx-auto w-max) */}
       <motion.div
-        style={{ left: '50%', bottom: '1%' }}
-        animate={{ x: '-50%', y: [0, -4, 0] }}
-        transition={{ duration: 3, repeat: Infinity, delay: 2, ease: 'easeInOut' }}
-        className="absolute z-20"
+        style={{ bottom: '1%' }}
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 4, repeat: Infinity, delay: 3.5, ease: 'easeInOut' }}
+        className="absolute left-0 right-0 mx-auto w-max z-20 flex justify-center"
       >
         <div className="px-4 py-1.5 rounded-full bg-white border border-[#DCE8FC] shadow-md flex items-center gap-2 text-xs font-bold text-[#0B2850]">
           <span className="w-2 h-2 rounded-full bg-[#1769E0] animate-pulse" />
