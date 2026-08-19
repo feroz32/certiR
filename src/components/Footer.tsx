@@ -22,11 +22,12 @@ export default function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap items-center gap-6 text-xs font-semibold text-[#4B5563]">
-            <a href="#services" className="hover:text-[#1769E0] transition-colors">Services</a>
-            <a href="#how-it-works" className="hover:text-[#1769E0] transition-colors">How It Works</a>
-            <a href="#about" className="hover:text-[#1769E0] transition-colors">About</a>
-            <a href="#contact" className="hover:text-[#1769E0] transition-colors">Contact</a>
-            <Link href="/login" className="hover:text-[#1769E0] transition-colors">Login</Link>
+            <Link href="/services" className="hover:text-[#1769E0] transition-colors">Services</Link>
+            <a href="/#how-it-works" className="hover:text-[#1769E0] transition-colors">How It Works</a>
+            <a href="/#about" className="hover:text-[#1769E0] transition-colors">About</a>
+            <a href="/#contact" className="hover:text-[#1769E0] transition-colors">Contact</a>
+            <Link href="/privacy" className="hover:text-[#1769E0] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#1769E0] transition-colors">Terms of Service</Link>
           </div>
 
         </div>
@@ -55,9 +56,9 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:underline">Privacy</a>
+            <Link href="/privacy" className="hover:underline">Privacy</Link>
             <span>·</span>
-            <a href="#" className="hover:underline">Terms</a>
+            <Link href="/terms" className="hover:underline">Terms</Link>
             <span>·</span>
             <p>© 2026 CertificationWork.com</p>
           </div>

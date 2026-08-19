@@ -12,10 +12,10 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '#services', label: 'Services' },
-    { href: '#how-it-works', label: 'How It Works' },
-    { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/services', label: 'Services' },
+    { href: '/#how-it-works', label: 'How It Works' },
+    { href: '/#about', label: 'About' },
+    { href: '/#contact', label: 'Contact' },
   ];
 
   return (
@@ -31,13 +31,13 @@ export default function Navbar() {
           {/* Center: Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm font-semibold text-[#1F2937] hover:text-[#1769E0] transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -84,14 +84,14 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2 text-base font-medium text-[#1F2937] hover:text-[#1769E0] hover:bg-[#EEF6FF] rounded-lg transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
 
           <div className="pt-3 border-t border-[#E5E7EB]">
