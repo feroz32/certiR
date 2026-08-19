@@ -8,24 +8,24 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 export const metadata: Metadata = {
   metadataBase: new URL('https://certificationwork.com'),
   title: {
-    default: 'Certificate Services in Hyderabad & Across India | Certification Work',
+    default: 'Certification Work Services in India',
     template: '%s | Certification Work',
   },
   description:
-    'Certification Work provides reliable doorstep certificate assistance in Hyderabad and across India, helping individuals with Birth, Caste, Income, EWS, and Residence certificates.',
+    'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
   keywords: [
     'Certification Work',
     'CertificationWork.com',
-    'certificate services Hyderabad',
     'certificate services India',
-    'birth certificate assistance Hyderabad',
-    'caste certificate Telangana',
+    'birth certificate application',
+    'caste certificate India',
     'income certificate assistance',
-    'ews certificate Hyderabad',
-    'residence certificate India',
-    'doorstep document services Hyderabad',
-    'aadhaar card update assistance',
-    'pan card assistance India',
+    'ews certificate',
+    'aadhaar card update',
+    'pan card assistance',
+    'passport services India',
+    'marriage certificate registration',
+    'doorstep document services',
   ],
   alternates: {
     canonical: 'https://certificationwork.com/',
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Certificate Services in Hyderabad & Across India | Certification Work',
+    title: 'Certification Work Services in India',
     description:
-      'Certification Work provides reliable doorstep certificate assistance in Hyderabad and across India, helping individuals with Birth, Caste, Income, EWS, and Residence certificates.',
+      'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
     url: 'https://certificationwork.com',
     siteName: 'Certification Work',
     images: [
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Certificate Services in Hyderabad & Across India | Certification Work',
+    title: 'Certification Work Services in India',
     description:
-      'Certification Work provides reliable doorstep certificate assistance in Hyderabad and across India, helping individuals with Birth, Caste, Income, EWS, and Residence certificates.',
+      'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
     images: ['/official-logo.png'],
   },
 };
@@ -74,41 +74,18 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['Organization', 'LocalBusiness'],
+    '@type': 'Organization',
     name: 'Certification Work',
     url: 'https://certificationwork.com',
     logo: 'https://certificationwork.com/official-logo.png',
     description:
-      'Certification Work provides reliable doorstep certificate and document assistance services in Hyderabad, Telangana, and across India.',
-    telephone: '+91-8639135520',
-    email: 'support@certificationwork.com',
-    priceRange: '₹₹',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Hyderabad',
-      addressRegion: 'Telangana',
-      addressCountry: 'IN',
-    },
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Hyderabad',
-      },
-      {
-        '@type': 'AdministrativeArea',
-        name: 'Telangana',
-      },
-      {
-        '@type': 'Country',
-        name: 'India',
-      },
-    ],
+      'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-8639135520',
       contactType: 'customer service',
       areaServed: 'IN',
-      availableLanguage: ['English', 'Hindi', 'Telugu'],
+      availableLanguage: ['English', 'Hindi'],
     },
   };
 
