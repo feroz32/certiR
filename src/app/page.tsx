@@ -41,16 +41,10 @@ export default function HomePage() {
           {/* Left Column: Text & WhatsApp CTA */}
           <div className="lg:col-span-6 space-y-6 text-left">
             
-            {/* Eyebrow Label */}
-            <div className="flex items-center gap-2.5 text-[#1769E0] text-xs font-bold uppercase tracking-widest">
-              <span className="w-8 h-0.5 bg-[#1769E0] inline-block rounded-full" />
-              <span>CERTIFICATE ASSISTANCE, MADE SIMPLE</span>
-            </div>
-
-            {/* Exactly One Main H1 Heading */}
+            {/* Main H1 Headline with exact original lines */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
-              <span className="text-[#0B2850] block">Certificate &amp; Certification</span>
-              <span className="text-[#1769E0] block mt-1.5">Services in India</span>
+              <span className="text-[#0B2850] block">Certificate Services,</span>
+              <span className="text-[#1769E0] block mt-1.5">Right at Your Doorstep.</span>
             </h1>
 
             {/* Supporting Text */}
