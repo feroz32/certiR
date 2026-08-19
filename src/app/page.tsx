@@ -1,4 +1,4 @@
-import Metadata from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getWhatsAppUrl, getServiceWhatsAppUrl } from '@/lib/whatsapp';
 import HeroVisual from '@/components/HeroVisual';

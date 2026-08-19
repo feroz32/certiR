@@ -1,4 +1,4 @@
-import Metadata from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES_DATA } from '@/lib/servicesData';
 import { MessageCircle, FileText, ArrowRight, ShieldCheck } from 'lucide-react';
