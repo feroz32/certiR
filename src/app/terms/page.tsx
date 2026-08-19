@@ -5,7 +5,7 @@ export const metadata = {
   description:
     'Read the Terms and Conditions for Certification Work regarding document assistance services, processing workflows, and service scope.',
   alternates: {
-    canonical: 'https://www.certificationwork.com/terms',
+    canonical: 'https://certificationwork.com/terms',
   },
 };
 

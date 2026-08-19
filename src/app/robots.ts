@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/', '/vault/', '/login/'],
       },
     ],
-    sitemap: 'https://www.certificationwork.com/sitemap.xml',
+    sitemap: 'https://certificationwork.com/sitemap.xml',
   };
 }

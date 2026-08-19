@@ -6,7 +6,7 @@ import Providers from '@/components/Providers';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.certificationwork.com'),
+  metadataBase: new URL('https://certificationwork.com'),
   title: {
     default: 'Certification Work Services in India',
     template: '%s | Certification Work',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'doorstep document services',
   ],
   alternates: {
-    canonical: '/',
+    canonical: 'https://certificationwork.com/',
   },
   robots: {
     index: true,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Certification Work Services in India',
     description:
       'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
-    url: 'https://www.certificationwork.com',
+    url: 'https://certificationwork.com',
     siteName: 'Certification Work',
     images: [
       {
@@ -76,8 +76,8 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Certification Work',
-    url: 'https://www.certificationwork.com',
-    logo: 'https://www.certificationwork.com/official-logo.png',
+    url: 'https://certificationwork.com',
+    logo: 'https://certificationwork.com/official-logo.png',
     description:
       'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
     contactPoint: {
@@ -93,7 +93,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Certification Work',
-    url: 'https://www.certificationwork.com',
+    url: 'https://certificationwork.com',
   };
 
   return (

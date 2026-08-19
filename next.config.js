@@ -17,6 +17,21 @@ const nextConfig = {
       }
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.certificationwork.com',
+          },
+        ],
+        destination: 'https://certificationwork.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   rewrites: async () => {
     return [
       {

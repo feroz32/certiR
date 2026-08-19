@@ -9,7 +9,7 @@ export const metadata = {
   description:
     'Certification Work provides reliable certificate and certification services in India, helping individuals and businesses with documentation and verification.',
   alternates: {
-    canonical: 'https://www.certificationwork.com/',
+    canonical: 'https://certificationwork.com/',
   },
 };
 

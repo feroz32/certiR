@@ -5,7 +5,7 @@ export const metadata = {
   description:
     'Read the official Privacy Policy for Certification Work regarding document security, personal data protection, and user rights.',
   alternates: {
-    canonical: 'https://www.certificationwork.com/privacy',
+    canonical: 'https://certificationwork.com/privacy',
   },
 };
 

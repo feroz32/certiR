@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = SERVICES_DATA[params.slug];
   if (!service) return {};
 
-  const canonicalUrl = `https://www.certificationwork.com/services/${service.slug}`;
+  const canonicalUrl = `https://certificationwork.com/services/${service.slug}`;
 
   return {
     title: service.metaTitle,
@@ -65,8 +65,8 @@ export default function ServiceDetailPage({ params }: Props) {
     provider: {
       '@type': 'Organization',
       name: 'Certification Work',
-      url: 'https://www.certificationwork.com',
-      logo: 'https://www.certificationwork.com/official-logo.png',
+      url: 'https://certificationwork.com',
+      logo: 'https://certificationwork.com/official-logo.png',
     },
     areaServed: {
       '@type': 'Country',
@@ -83,19 +83,19 @@ export default function ServiceDetailPage({ params }: Props) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.certificationwork.com/',
+        item: 'https://certificationwork.com/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Services',
-        item: 'https://www.certificationwork.com/services',
+        item: 'https://certificationwork.com/services',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: service.title,
-        item: `https://www.certificationwork.com/services/${service.slug}`,
+        item: `https://certificationwork.com/services/${service.slug}`,
       },
     ],
   };

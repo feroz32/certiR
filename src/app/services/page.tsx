@@ -9,7 +9,7 @@ export const metadata = {
   description:
     'Browse all certificate and document assistance services provided by Certification Work in India, including birth, caste, income, EWS, Aadhaar, PAN, passport, and marriage certificates.',
   alternates: {
-    canonical: 'https://www.certificationwork.com/services',
+    canonical: 'https://certificationwork.com/services',
   },
 };
 
