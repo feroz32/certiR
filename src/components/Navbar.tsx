@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X, User, FileText, Search, ShieldCheck } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
 import Logo from '@/components/Logo';
 
@@ -12,15 +12,15 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '#services', label: 'Services' },
-    { href: '#how-it-works', label: 'How It Works' },
-    { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/marketplace', label: 'Services' },
+    { href: '/tracking', label: 'Track Application' },
+    { href: '/#how-it-works', label: 'How It Works' },
+    { href: '/#about', label: 'About' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Left: CW Brand Logo */}
@@ -31,18 +31,26 @@ export default function Navbar() {
           {/* Center: Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-semibold text-[#1F2937] hover:text-[#1769E0] transition-colors"
+                className="text-xs font-bold text-slate-700 hover:text-[#1769E0] transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
-          {/* Right: Login Button */}
+          {/* Right: Actions */}
           <div className="hidden md:flex items-center gap-4">
+            <Link
+              href="/marketplace"
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-[#1769E0] hover:bg-[#1256b8] text-white transition-all shadow-md flex items-center gap-1.5"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Apply Online</span>
+            </Link>
+
             {session?.user ? (
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-[#0B2850]">
@@ -50,7 +58,7 @@ export default function Navbar() {
                 </span>
                 <button
                   onClick={() => signOut()}
-                  className="px-3.5 py-1.5 rounded-lg text-xs font-semibold border border-[#E5E7EB] text-[#667085] hover:text-[#0B2850] transition-colors"
+                  className="px-3.5 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors"
                 >
                   Sign Out
                 </button>
@@ -58,9 +66,9 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="px-4 py-2 rounded-xl text-sm font-semibold border border-[#E5E7EB] text-[#1F2937] hover:border-[#1769E0] hover:text-[#1769E0] transition-all flex items-center gap-2"
+                className="px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 text-slate-700 hover:border-[#1769E0] hover:text-[#1769E0] transition-all flex items-center gap-2"
               >
-                <User className="w-4 h-4" />
+                <User className="w-3.5 h-3.5" />
                 <span>Login</span>
               </Link>
             )}
@@ -71,7 +79,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
-              className="p-2 text-[#1F2937] hover:text-[#1769E0]"
+              className="p-2 text-slate-700 hover:text-[#1769E0]"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -82,23 +90,31 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3">
+        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-[#1F2937] hover:text-[#1769E0] hover:bg-[#EEF6FF] rounded-lg transition-colors"
+              className="block px-3 py-2 text-sm font-bold text-slate-700 hover:text-[#1769E0] hover:bg-blue-50 rounded-lg transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
 
-          <div className="pt-3 border-t border-[#E5E7EB]">
+          <div className="pt-3 border-t border-slate-200 space-y-2">
+            <Link
+              href="/marketplace"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block w-full text-center px-4 py-2.5 rounded-xl bg-[#1769E0] text-white text-xs font-bold shadow-sm"
+            >
+              Apply Online
+            </Link>
+
             {session?.user ? (
               <button
                 onClick={() => signOut()}
-                className="w-full text-left px-3 py-2 text-base font-medium text-rose-600"
+                className="w-full text-left px-3 py-2 text-xs font-bold text-rose-600"
               >
                 Sign Out ({session.user.name})
               </button>
@@ -106,7 +122,7 @@ export default function Navbar() {
               <Link
                 href="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full text-center px-4 py-2.5 rounded-lg bg-[#1769E0] text-white text-sm font-semibold"
+                className="block w-full text-center px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold"
               >
                 Login
               </Link>
