@@ -23,25 +23,25 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-20 pb-16 bg-white text-[#1F2937]">
+    <div className="space-y-24 pb-16 bg-white text-[#1F2937]">
       
-      {/* 1. HERO SECTION (PERFECTLY CENTERED & FITTED) */}
-      <section className="pt-8 sm:pt-14 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 w-full">
+      {/* 1. HERO SECTION */}
+      <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-visible">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-16 w-full">
           
           {/* Left Column: Text & WhatsApp CTA */}
-          <div className="lg:col-span-6 space-y-6 text-left my-auto">
+          <div className="lg:col-span-6 space-y-6 text-left">
             
             {/* Eyebrow Label */}
-            <div className="flex items-center gap-2 text-[#1769E0] text-xs font-bold uppercase tracking-widest">
-              <span className="w-6 h-0.5 bg-[#1769E0] inline-block" />
+            <div className="flex items-center gap-2.5 text-[#1769E0] text-xs font-bold uppercase tracking-widest">
+              <span className="w-8 h-0.5 bg-[#1769E0] inline-block rounded-full" />
               <span>CERTIFICATE ASSISTANCE, MADE SIMPLE</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
               <span className="text-[#0B2850] block">Certificate Services,</span>
-              <span className="text-[#1769E0] block mt-1">Right at Your Doorstep.</span>
+              <span className="text-[#1769E0] block mt-1.5">Right at Your Doorstep.</span>
             </h1>
 
             {/* Supporting Text */}
@@ -57,15 +57,15 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#1769E0] hover:bg-[#1256b8] text-white font-bold text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
               >
-                <MessageCircle className="w-5 h-5 fill-current" />
+                <MessageCircle className="w-5.5 h-5.5 fill-current" />
                 <span>Chat with us on WhatsApp →</span>
               </a>
             </div>
 
           </div>
 
-          {/* Right Column: Hero Visual Perfectly Centered */}
-          <div className="lg:col-span-6 flex items-center justify-center my-auto overflow-visible">
+          {/* Right Column: Hero Visual Graphic */}
+          <div className="lg:col-span-6 flex items-center justify-center">
             <HeroVisual />
           </div>
 
