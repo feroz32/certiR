@@ -1,102 +1,120 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Baby, Users, CreditCard, Globe, UserCheck, CheckCircle2, ShieldCheck, FileText } from 'lucide-react';
+import { 
+  Baby, 
+  GraduationCap, 
+  FileCheck, 
+  Contact, 
+  LayoutGrid, 
+  IndianRupee,
+  CheckCircle2,
+  Award,
+  Sparkles
+} from 'lucide-react';
 
 export default function HeroVisual() {
   const floatingBadges = [
     {
       title: 'Birth Certificate',
       icon: Baby,
-      position: 'top-2 left-1/2 -translate-x-1/2 -translate-y-4',
+      position: 'top-0 left-1/2 -translate-x-1/2 -translate-y-6',
       delay: 0
     },
     {
-      title: 'Caste Certificate',
-      icon: Users,
-      position: 'top-8 right-2 sm:right-6',
-      delay: 0.5
+      title: 'Income Certificate',
+      icon: IndianRupee,
+      position: 'top-12 right-0 sm:-right-4',
+      delay: 0.4
     },
     {
-      title: 'Aadhaar Update',
-      icon: UserCheck,
-      position: 'top-28 left-2 sm:left-4',
-      delay: 1
+      title: 'Other Certificates',
+      icon: LayoutGrid,
+      position: 'bottom-12 right-0 sm:-right-4',
+      delay: 0.8
     },
     {
-      title: 'PAN Card',
-      icon: CreditCard,
-      position: 'top-32 right-2 sm:right-4',
-      delay: 1.5
+      title: 'ID & Address Proof',
+      icon: Contact,
+      position: 'bottom-12 left-0 sm:-left-4',
+      delay: 1.2
     },
     {
-      title: 'Passport Services',
-      icon: Globe,
-      position: 'bottom-2 left-1/2 -translate-x-1/2 translate-y-4',
-      delay: 2
+      title: 'Educational Certificates',
+      icon: GraduationCap,
+      position: 'top-12 left-0 sm:-left-4',
+      delay: 1.6
     }
   ];
 
   return (
-    <div className="relative w-full max-w-lg mx-auto aspect-square flex items-center justify-center p-4">
+    <div className="relative w-full max-w-xl mx-auto aspect-square flex items-center justify-center p-4">
       
-      {/* Background Orbit Ring SVG */}
-      <svg className="absolute inset-0 w-full h-full text-[#CBD5E1]" viewBox="0 0 400 400" fill="none">
-        <circle cx="200" cy="200" r="150" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" className="opacity-60" />
-        <circle cx="200" cy="200" r="180" stroke="#1769E0" strokeWidth="1" strokeDasharray="4 8" className="opacity-30 animate-spin-slow" />
+      {/* Background Circular Orbit Ring */}
+      <svg className="absolute inset-0 w-full h-full text-[#1769E0]/20" viewBox="0 0 450 450" fill="none">
+        <circle cx="225" cy="225" r="170" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" />
+        <circle cx="225" cy="225" r="170" stroke="#1769E0" strokeWidth="1.5" strokeDasharray="3 12" className="opacity-40 animate-spin-slow" />
       </svg>
 
-      {/* Blue Pedestal Base Glow */}
-      <div className="absolute bottom-10 w-72 h-16 bg-gradient-to-t from-[#1769E0]/30 to-[#EEF6FF] rounded-full blur-xl pointer-events-none" />
-      <div className="absolute bottom-14 w-64 h-12 bg-[#1769E0]/20 rounded-full blur-lg" />
+      {/* Blue Glow Base under Certificate */}
+      <div className="absolute bottom-8 w-72 h-16 bg-[#1769E0]/15 rounded-full blur-2xl pointer-events-none" />
 
-      {/* Main 3D Floating Certificate Document Card */}
+      {/* Main Central Certificate Document */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
+        animate={{ y: [0, -8, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative z-10 w-56 sm:w-64 bg-white border-2 border-[#CBD5E1] rounded-3xl p-6 shadow-2xl space-y-4 text-left border-t-white"
+        className="relative z-10 w-56 sm:w-64 bg-white border-2 border-[#DCE8FC] rounded-2xl p-6 shadow-2xl space-y-4 text-center"
         style={{
-          boxShadow: '0 20px 50px -10px rgba(23, 105, 224, 0.25), 0 10px 20px -5px rgba(11, 40, 80, 0.1)'
+          boxShadow: '0 25px 60px -15px rgba(23, 105, 224, 0.2), 0 10px 25px -5px rgba(11, 40, 80, 0.08)'
         }}
       >
-        {/* Certificate Header */}
-        <div className="text-center pb-2 border-b border-[#E5E7EB] space-y-1">
-          <div className="text-[10px] font-black tracking-widest text-[#1769E0] uppercase">Official Issue</div>
-          <h3 className="text-sm font-black text-[#0B2850] tracking-wider uppercase">CERTIFICATE</h3>
+        {/* Emblem/Seal Icon at Top */}
+        <div className="flex justify-center">
+          <div className="w-9 h-9 rounded-full bg-[#EEF6FF] border border-[#1769E0]/30 text-[#1769E0] flex items-center justify-center shadow-inner">
+            <Award className="w-5 h-5" />
+          </div>
         </div>
 
-        {/* Certificate Body Lines */}
-        <div className="space-y-2 py-1">
-          <div className="h-2 bg-[#EEF6FF] rounded-full w-full" />
-          <div className="h-2 bg-[#EEF6FF] rounded-full w-4/5" />
-          <div className="h-2 bg-[#EEF6FF] rounded-full w-full" />
-          <div className="h-2 bg-[#EEF6FF] rounded-full w-3/5" />
+        {/* Certificate Title */}
+        <h3 className="text-sm font-black text-[#0B2850] tracking-widest uppercase">
+          CERTIFICATE
+        </h3>
+
+        {/* Placeholder Lines */}
+        <div className="space-y-2 py-1 max-w-[85%] mx-auto">
+          <div className="h-1.5 bg-[#EEF6FF] rounded-full w-full" />
+          <div className="h-1.5 bg-[#EEF6FF] rounded-full w-4/5 mx-auto" />
+          <div className="h-1.5 bg-[#EEF6FF] rounded-full w-full" />
+          <div className="h-1.5 bg-[#EEF6FF] rounded-full w-3/5 mx-auto" />
         </div>
 
-        {/* Stamp Ribbon Badge Seal */}
-        <div className="flex items-center justify-between pt-2">
-          <div className="h-3 w-16 bg-[#CBD5E1]/40 rounded" />
-          
+        {/* Bottom Signature & Stamp */}
+        <div className="flex items-center justify-between pt-3 border-t border-[#F1F5F9]">
+          <div className="text-left">
+            <span className="font-serif italic text-xs text-slate-500 font-bold tracking-wider block">Jura</span>
+            <div className="h-0.5 w-12 bg-slate-300 rounded" />
+          </div>
+
           {/* Blue Ribbon Seal */}
-          <div className="relative w-10 h-10 rounded-full bg-[#1769E0] text-white flex items-center justify-center shadow-lg ring-4 ring-[#EEF6FF]">
-            <CheckCircle2 className="w-6 h-6" />
+          <div className="w-8 h-8 rounded-full bg-[#1769E0] text-white flex items-center justify-center shadow-md ring-4 ring-[#EEF6FF]">
+            <CheckCircle2 className="w-5 h-5" />
           </div>
         </div>
       </motion.div>
 
-      {/* Surrounding Floating Service Badges */}
+      {/* Surrounding Floating Cards */}
       {floatingBadges.map((badge, idx) => {
         const Icon = badge.icon;
         return (
           <motion.div
             key={idx}
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 3, repeat: Infinity, delay: badge.delay, ease: 'easeInOut' }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, delay: badge.delay, ease: 'easeInOut' }}
             className={`absolute z-20 ${badge.position}`}
           >
-            <div className="bg-white/95 backdrop-blur-md border border-[#E5E7EB] shadow-xl rounded-2xl p-2.5 sm:p-3 flex flex-col items-center gap-1.5 w-24 sm:w-28 text-center hover:scale-105 transition-transform">
-              <div className="w-8 h-8 rounded-xl bg-[#EEF6FF] text-[#1769E0] flex items-center justify-center">
-                <Icon className="w-4 h-4" />
+            <div className="bg-white border border-[#E5E7EB] shadow-lg rounded-2xl p-2.5 sm:p-3 flex flex-col items-center gap-1.5 w-24 sm:w-28 text-center hover:scale-105 transition-all">
+              <div className="w-8 h-8 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center">
+                <Icon className="w-4.5 h-4.5" />
               </div>
               <span className="text-[10px] sm:text-xs font-bold text-[#0B2850] leading-tight">
                 {badge.title}
@@ -105,6 +123,18 @@ export default function HeroVisual() {
           </motion.div>
         );
       })}
+
+      {/* Bottom Center Pill: "● And many more" */}
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 3, repeat: Infinity, delay: 2, ease: 'easeInOut' }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 z-20"
+      >
+        <div className="px-4 py-1.5 rounded-full bg-white border border-[#DCE8FC] shadow-md flex items-center gap-2 text-xs font-bold text-[#0B2850]">
+          <span className="w-2 h-2 rounded-full bg-[#1769E0] animate-pulse" />
+          <span>And many more</span>
+        </div>
+      </motion.div>
 
     </div>
   );

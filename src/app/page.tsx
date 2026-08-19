@@ -1,8 +1,8 @@
 'use client';
 
 import { getWhatsAppUrl, getServiceWhatsAppUrl } from '@/lib/whatsapp';
-import CertificateAnimation from '@/components/CertificateAnimation';
-import { MessageCircle, ArrowRight } from 'lucide-react';
+import HeroVisual from '@/components/HeroVisual';
+import { MessageCircle } from 'lucide-react';
 
 export default function HomePage() {
   const mainWhatsappUrl = getWhatsAppUrl();
@@ -25,42 +25,51 @@ export default function HomePage() {
   return (
     <div className="space-y-24 pb-16 bg-white text-[#1F2937]">
       
-      {/* 1. HERO SECTION */}
-      <section className="pt-12 sm:pt-20 pb-6 px-4 max-w-4xl mx-auto text-center space-y-8">
-        
-        {/* Main Headline */}
-        <div className="space-y-2">
-          <h1 className="text-4xl sm:text-6xl font-black text-[#0B2850] tracking-tight leading-tight">
-            Certificate Services.
-          </h1>
-          <h1 className="text-4xl sm:text-6xl font-black text-[#1769E0] tracking-tight leading-tight">
-            Right at Your Doorstep.
-          </h1>
+      {/* 1. HERO SECTION (SPLIT LAYOUT FROM IMAGE) */}
+      <section className="pt-12 sm:pt-20 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
+          
+          {/* Left Column: Text & WhatsApp CTA */}
+          <div className="lg:col-span-6 space-y-6 text-left">
+            
+            {/* Eyebrow Label */}
+            <div className="flex items-center gap-2 text-[#1769E0] text-xs font-bold uppercase tracking-widest">
+              <span className="w-6 h-0.5 bg-[#1769E0] inline-block" />
+              <span>CERTIFICATE ASSISTANCE, MADE SIMPLE</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+              <span className="text-[#0B2850] block">Certificate Services,</span>
+              <span className="text-[#1769E0] block mt-1">Right at Your Doorstep.</span>
+            </h1>
+
+            {/* Supporting Text */}
+            <p className="text-base sm:text-lg text-[#667085] font-medium leading-relaxed max-w-xl">
+              We collect your documents, handle the application process, and deliver your completed certificate to your home.
+            </p>
+
+            {/* WhatsApp Main Button */}
+            <div className="pt-2">
+              <a
+                href={mainWhatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#1769E0] hover:bg-[#1256b8] text-white font-bold text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+              >
+                <MessageCircle className="w-5 h-5 fill-current" />
+                <span>Chat with us on WhatsApp →</span>
+              </a>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive Certificate Visual with Orbiting Cards */}
+          <div className="lg:col-span-6 flex justify-center">
+            <HeroVisual />
+          </div>
+
         </div>
-
-        {/* Supporting text */}
-        <p className="text-base sm:text-lg text-[#667085] font-medium max-w-2xl mx-auto leading-relaxed">
-          We collect your documents, handle the application process, and deliver your completed certificate to your home.
-        </p>
-
-        {/* WhatsApp Main Button */}
-        <div>
-          <a
-            href={mainWhatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#1769E0] hover:bg-[#1256b8] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all"
-          >
-            <MessageCircle className="w-5 h-5 fill-current" />
-            <span>Chat with us on WhatsApp →</span>
-          </a>
-        </div>
-
-        {/* Certificate Scroll Animation Visual */}
-        <div className="pt-4">
-          <CertificateAnimation />
-        </div>
-
       </section>
 
       {/* 2. SERVICES (COMPACT STRIP) */}
@@ -75,7 +84,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Compact Service Strip (Horizontal scroll on mobile, wrap list on desktop) */}
+        {/* Compact Service Strip */}
         <div className="flex items-center gap-2.5 overflow-x-auto pb-4 pt-2 sm:flex-wrap sm:justify-center no-scrollbar">
           {servicesList.map((service, idx) => {
             const waUrl = getServiceWhatsAppUrl(service.title);
@@ -149,7 +158,7 @@ export default function HomePage() {
 
       </section>
 
-      {/* 4. BRAND VISION (SPACIOUS) */}
+      {/* 4. BRAND VISION */}
       <section id="about" className="max-w-3xl mx-auto px-4 py-12 text-center space-y-3 scroll-mt-24">
         <h2 className="text-3xl font-black text-[#0B2850]">
           Protecting the Proof of Life.
