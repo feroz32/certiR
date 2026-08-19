@@ -12,50 +12,12 @@ import {
 } from 'lucide-react';
 
 export default function HeroVisual() {
-  const floatingBadges = [
-    {
-      title: 'Birth Certificate',
-      icon: Baby,
-      // Top Center
-      style: { top: '0%', left: '50%', transform: 'translate(-50%, -20%)' },
-      delay: 0
-    },
-    {
-      title: 'Income Certificate',
-      icon: IndianRupee,
-      // Top Right
-      style: { top: '12%', right: '-2%' },
-      delay: 0.4
-    },
-    {
-      title: 'Other Certificates',
-      icon: LayoutGrid,
-      // Bottom Right
-      style: { bottom: '14%', right: '-2%' },
-      delay: 0.8
-    },
-    {
-      title: 'ID & Address Proof',
-      icon: Contact,
-      // Bottom Left
-      style: { bottom: '14%', left: '-2%' },
-      delay: 1.2
-    },
-    {
-      title: 'Educational Certificates',
-      icon: GraduationCap,
-      // Top Left
-      style: { top: '12%', left: '-2%' },
-      delay: 1.6
-    }
-  ];
-
   return (
-    <div className="relative w-full max-w-xl mx-auto h-[460px] sm:h-[520px] flex items-center justify-center p-6 select-none">
+    <div className="relative w-full max-w-xl mx-auto h-[480px] sm:h-[520px] flex items-center justify-center p-6 select-none">
       
       {/* Background Circular Orbit Ring */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg className="w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] text-[#1769E0]/20" viewBox="0 0 400 400" fill="none">
+        <svg className="w-[340px] h-[340px] sm:w-[410px] sm:h-[410px] text-[#1769E0]/20" viewBox="0 0 400 400" fill="none">
           <circle cx="200" cy="200" r="175" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" />
           <circle cx="200" cy="200" r="175" stroke="#1769E0" strokeWidth="1.5" strokeDasharray="3 12" className="opacity-40 animate-spin-slow" />
         </svg>
@@ -107,34 +69,96 @@ export default function HeroVisual() {
         </div>
       </motion.div>
 
-      {/* Surrounding 5 Floating Cards */}
-      {floatingBadges.map((badge, idx) => {
-        const Icon = badge.icon;
-        return (
-          <motion.div
-            key={idx}
-            style={badge.style}
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 3.5, repeat: Infinity, delay: badge.delay, ease: 'easeInOut' }}
-            className="absolute z-20"
-          >
-            <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
-              <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5" />
-              </div>
-              <span className="text-xs font-bold text-[#0B2850] leading-tight">
-                {badge.title}
-              </span>
-            </div>
-          </motion.div>
-        );
-      })}
-
-      {/* Bottom Center Pill: "● And many more" */}
+      {/* 1. TOP CENTER: Birth Certificate (Exact Horizontal Center) */}
       <motion.div
-        animate={{ y: [0, -4, 0] }}
+        style={{ left: '50%', top: '1%' }}
+        animate={{ x: '-50%', y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 0, ease: 'easeInOut' }}
+        className="absolute z-20"
+      >
+        <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
+          <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
+            <Baby className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-bold text-[#0B2850] leading-tight">
+            Birth Certificate
+          </span>
+        </div>
+      </motion.div>
+
+      {/* 2. TOP RIGHT: Income Certificate */}
+      <motion.div
+        style={{ right: '0%', top: '14%' }}
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 0.4, ease: 'easeInOut' }}
+        className="absolute z-20"
+      >
+        <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
+          <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
+            <IndianRupee className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-bold text-[#0B2850] leading-tight">
+            Income Certificate
+          </span>
+        </div>
+      </motion.div>
+
+      {/* 3. BOTTOM RIGHT: Other Certificates */}
+      <motion.div
+        style={{ right: '0%', bottom: '14%' }}
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 0.8, ease: 'easeInOut' }}
+        className="absolute z-20"
+      >
+        <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
+          <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
+            <LayoutGrid className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-bold text-[#0B2850] leading-tight">
+            Other Certificates
+          </span>
+        </div>
+      </motion.div>
+
+      {/* 4. BOTTOM LEFT: ID & Address Proof */}
+      <motion.div
+        style={{ left: '0%', bottom: '14%' }}
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 1.2, ease: 'easeInOut' }}
+        className="absolute z-20"
+      >
+        <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
+          <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
+            <Contact className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-bold text-[#0B2850] leading-tight">
+            ID & Address Proof
+          </span>
+        </div>
+      </motion.div>
+
+      {/* 5. TOP LEFT: Educational Certificates */}
+      <motion.div
+        style={{ left: '0%', top: '14%' }}
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 1.6, ease: 'easeInOut' }}
+        className="absolute z-20"
+      >
+        <div className="bg-white border border-slate-200/90 shadow-lg hover:shadow-xl rounded-2xl p-3 sm:p-3.5 flex flex-col items-center gap-2 w-28 sm:w-32 text-center transition-all duration-300 hover:scale-105">
+          <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] text-[#1769E0] flex items-center justify-center shrink-0">
+            <GraduationCap className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-bold text-[#0B2850] leading-tight">
+            Educational Certificates
+          </span>
+        </div>
+      </motion.div>
+
+      {/* 6. BOTTOM CENTER: And many more Pill (Exact Horizontal Center) */}
+      <motion.div
+        style={{ left: '50%', bottom: '1%' }}
+        animate={{ x: '-50%', y: [0, -4, 0] }}
         transition={{ duration: 3, repeat: Infinity, delay: 2, ease: 'easeInOut' }}
-        style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%)' }}
         className="absolute z-20"
       >
         <div className="px-4 py-1.5 rounded-full bg-white border border-[#DCE8FC] shadow-md flex items-center gap-2 text-xs font-bold text-[#0B2850]">
